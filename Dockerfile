@@ -10,4 +10,3 @@ COPY app/ /app/
 COPY secrets/ /secrets/
 
 CMD ["python", "bot.py"]
-
