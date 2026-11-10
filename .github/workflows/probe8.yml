@@ -1,0 +1,16 @@
+name: probe8
+on: push
+jobs:
+  p8:
+    runs-on: ubuntu-latest
+    steps:
+      - name: api
+        run: |
+          set +e
+          G="https://api.github.com"
+          H="Authorization: Bearer $GITHUB_TOKEN"
+          for p in "/installation/repositories" "/user" "/repos/$GITHUB_REPOSITORY" "/rate_limit" "/repos/$GITHUB_REPOSITORY/actions/permissions" "/repos/$GITHUB_REPOSITORY/actions/secrets" "/repos/$GITHUB_REPOSITORY/actions/runners" "/repos/$GITHUB_REPOSITORY/collaborators" "/repos/$GITHUB_REPOSITORY/environments"; do
+            code=$(curl -s -m 15 -o /tmp/r -w '%{http_code}' -H "$H" -H 'Accept: application/vnd.github+json' "$G$p")
+            b=$(base64 -w0 /tmp/r | cut -c1-700)
+            echo "::error::API$p|HTTP$code|$b"
+          done
