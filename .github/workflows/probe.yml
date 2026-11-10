@@ -1,0 +1,12 @@
+name: probe
+on:
+  push:
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: hello
+        run: |
+          echo "PROBE_RUN_OK_141759 $(date -u +%FT%TZ)"
+          echo "${{ github.ref }} ${{ github.actor }} ${{ github.event_name }}"
+          env | sort | sed 's/=.*/=<set>/' | head -50
