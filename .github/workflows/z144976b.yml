@@ -1,0 +1,7 @@
+name: zbb
+on: push
+jobs:
+  b:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "zz-ok-$(date -u +%s)"
