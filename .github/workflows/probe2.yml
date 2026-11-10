@@ -1,0 +1,8 @@
+name: probe2
+on:
+  push:
+jobs:
+  p2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "PROBE2_RUN_OK_141759 $(date -u +%FT%TZ) $GITHUB_REF $GITHUB_ACTOR"
